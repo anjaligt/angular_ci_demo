@@ -1,0 +1,47 @@
+<div layout="row" ng-controller="productsController" ng-cloak>
+    <div flex="10"></div>
+ 
+    <div flex="80" class='m-20px-0'>
+ 
+        <!-- page title & 'create product' button -->
+        <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+                <!-- page title -->
+                <div flex md-truncate>
+                    <h3 class="md-headline">Products</h3>
+                </div>
+ 
+        <!-- button for creating product -->
+<md-button class="md-raised" ng-click="showCreateProductForm()">Create</md-button>
+
+            </div>
+        </md-toolbar>
+ 
+        <!-- 'search' bar will be here -->
+ 
+        <md-content flex>
+            <!-- show product record list -->
+            <md-list ng-init="readProducts()">
+                <md-list-item class="md-3-line" ng-repeat="product in products">
+ 
+                    <!-- product information -->
+                    <div class="md-list-item-text">
+                        <h3>{{product.product_name}}</h3>
+                        <h4>{{product.product_description}}</h4>
+                        <p>${{product.product_price}}</p>
+                    </div>
+ 
+                    <!-- 'read one', 'edit' and 'delete' buttons -->
+                    <div class="md-secondary-container">
+                        <md-button class="md-raised md-info" ng-click="readOneProduct(product.product_id)">Read One</md-button>
+                        <!-- 'edit' button will be here -->
+                        <!-- 'delete' button will be here -->
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+ 
+    <div flex="10"></div>
+</div> <!-- end row -->
